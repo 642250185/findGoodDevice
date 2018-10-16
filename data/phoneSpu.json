@@ -1,0 +1,67 @@
+[
+    {
+        "typeId": 1,
+        "modelId": 2473,
+        "modelName": "iPhone XS Max"
+    },
+    {
+        "typeId": 1,
+        "modelId": 2471,
+        "modelName": "iPhone XS"
+    },
+    {
+        "typeId": 1,
+        "modelId": 618,
+        "modelName": "iPhone X"
+    },
+    {
+        "typeId": 1,
+        "modelId": 544,
+        "modelName": "iPhone 8 Plus"
+    },
+    {
+        "typeId": 1,
+        "modelId": 525,
+        "modelName": "iPhone 8"
+    },
+    {
+        "typeId": 1,
+        "modelId": 129,
+        "modelName": "iPhone 7 Plus"
+    },
+    {
+        "typeId": 1,
+        "modelId": 127,
+        "modelName": "iPhone 7"
+    },
+    {
+        "typeId": 1,
+        "modelId": 15,
+        "modelName": "iPhone 6s Plus"
+    },
+    {
+        "typeId": 1,
+        "modelId": 14,
+        "modelName": "iPhone 6S"
+    },
+    {
+        "typeId": 1,
+        "modelId": 114,
+        "modelName": "iPhone SE"
+    },
+    {
+        "typeId": 1,
+        "modelId": 4,
+        "modelName": "iPhone 6"
+    },
+    {
+        "typeId": 1,
+        "modelId": 16,
+        "modelName": "iPhone 6 Plus"
+    },
+    {
+        "typeId": 1,
+        "modelId": 5,
+        "modelName": "iPhone 5S"
+    }
+]
