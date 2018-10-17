@@ -80,7 +80,7 @@ const exportExcel = async() => {
             priceList.push(row);
         }
 
-        const filename = `${downloadPath}/找靓机手机数据.xlsx`;
+        const filename = `${downloadPath}/找靓机iPhone数据.xlsx`;
         fs.writeFileSync(filename, xlsx.build([
             {name: 'SKU', data: skuList},
             {name: '服务', data: serverList},
