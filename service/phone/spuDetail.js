@@ -164,9 +164,6 @@ const getAllSpuDetail = async() => {
 const saveSpuDetailData = async() => {
     try {
         const {skuList, serverInfoList, baseInfoList} = await getAllSpuDetail();
-        console.info('size: %d, skuList: %j', skuList.length, skuList);
-        console.info('size: %d, serverInfoList: %j',serverInfoList.length, serverInfoList);
-        console.info('size: %d, baseInfoList: ', baseInfoList.length, baseInfoList);
 
         await fs.ensureDir(_path.join(phoneSkuDataPath, '..'));
         fs.writeFileSync(phoneSkuDataPath, JSON.stringify(skuList, null, 4));
@@ -185,9 +182,4 @@ const saveSpuDetailData = async() => {
 };
 
 
-saveSpuDetailData();
-
-
-
-
-
+exports.saveSpuDetailData = saveSpuDetailData;

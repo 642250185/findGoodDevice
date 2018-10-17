@@ -65,11 +65,15 @@ const getPrice = async(baseInfo) =>{
         // 服务价
         serverStr = `1,${serverStr}`;
         const serverPrice = await sendRequest(userId, token, path, shoujiStr, serverStr);
-        console.info(`${baseInfo.productId}、${baseInfo.spuName}、 ${baseInfo.netword} ${originPrice} ${serverPrice}`);
+        let netword = baseInfo.netword, banben = baseInfo.banben;
+        netword = netword.substring(netword.indexOf(':')+1, netword.length);
+        banben = banben.substring(banben.indexOf(':')+1, banben.length);
+        console.info(`${baseInfo.productId}、${baseInfo.spuName}、 ${netword} ${banben} ${originPrice} ${serverPrice}`);
         result.push({
             productId: baseInfo.productId,
             spuName: baseInfo.spuName,
-            netword: baseInfo.netword,
+            netword: netword,
+            banben: banben,
             originPrice, serverPrice
         });
         return result;

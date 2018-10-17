@@ -3,7 +3,7 @@ const _path = require('path');
 const fs = require('fs-extra');
 const xlsx = require('node-xlsx').default;
 const config = require('../../config/index');
-const {phoneSkuDataPath, phoneServerDataPath, phoneDetailDataPath, downloadPath} = config.zlj;
+const {phoneSkuDataPath, phoneServerDataPath, phoneDetailDataPath, downloadPath, pricePath} = config.zlj;
 
 
 const getData = async() =>{
@@ -11,7 +11,8 @@ const getData = async() =>{
         const phoneSkuData = JSON.parse(fs.readFileSync(phoneSkuDataPath));
         const phoneServerData = JSON.parse(fs.readFileSync(phoneServerDataPath));
         const phoneDetailData = JSON.parse(fs.readFileSync(phoneDetailDataPath));
-        return {phoneSkuData, phoneServerData, phoneDetailData}
+        const priceData = JSON.parse(fs.readFileSync(pricePath));
+        return {phoneSkuData, phoneServerData, phoneDetailData, priceData}
     } catch (e) {
         console.error(e);
     }
@@ -19,10 +20,12 @@ const getData = async() =>{
 
 const exportExcel = async() => {
     try {
-        const {phoneSkuData, phoneServerData, phoneDetailData} = await getData();
+        const {phoneSkuData, phoneServerData, phoneDetailData, priceData} = await getData();
         const skuList = [['成色机型ID', '机型名称', 'pnId', 'pvId', '问题项', '答案项']];
         const serverList = [['成色机型ID', '服务ID', '服务名称', '服务名称2', '服务价格']];
         const baseInfoList = [['成色机型ID', 'SPU名称', '成色机型名称', '图片', '编号', '价格','原价', '版本', '网络', 'IMEI','使用情况','质检工程师', '级别', '激活时间', '保修到期时间', '质检结果', '质检报告详情']];
+        const priceList = [['成色机型ID','SPU名称','网络','版本','原价','服务价']];
+
         for(let sku of phoneSkuData){
             const row = [];
             row.push(sku.productId);
@@ -33,6 +36,7 @@ const exportExcel = async() => {
             row.push(sku.value);
             skuList.push(row);
         }
+
         for(let server of phoneServerData){
             const row = [];
             row.push(server.productId);
@@ -42,6 +46,7 @@ const exportExcel = async() => {
             row.push(server.serverPrice);
             serverList.push(row);
         }
+
         for(let baseInfo of phoneDetailData){
             const row = [];
             row.push(baseInfo.productId);
@@ -63,11 +68,24 @@ const exportExcel = async() => {
             row.push(baseInfo.qualityTestReport);
             baseInfoList.push(row);
         }
+
+        for(let price of priceData){
+            const row = [];
+            row.push(price.productId);
+            row.push(price.spuName);
+            row.push(price.netword);
+            row.push(price.banben);
+            row.push(price.originPrice);
+            row.push(price.serverPrice);
+            priceList.push(row);
+        }
+
         const filename = `${downloadPath}/找靓机手机数据.xlsx`;
         fs.writeFileSync(filename, xlsx.build([
             {name: 'SKU', data: skuList},
             {name: '服务', data: serverList},
             {name: '基础信息', data: baseInfoList},
+            {name: '价格信息', data: priceList},
         ]));
         console.log(`爬取结束, 成功导出文件: ${filename}`);
     } catch (e) {
@@ -77,4 +95,4 @@ const exportExcel = async() => {
 };
 
 
-exportExcel();
+exports.exportExcel = exportExcel;
