@@ -2,7 +2,7 @@ const _ = require('lodash');
 const _path = require('path');
 const fs = require('fs-extra');
 const request = require('superagent');
-const config = require('../../config/index');
+const config = require('../config/index');
 
 const {p, v, domain, openRoute, phoneDetailPath, phoneQualityDataPath, phoneKeypropDetail, productCheckPath, phoneServerInfoPath, phoneSkuDataPath, phoneServerDataPath, phoneDetailDataPath} = config.zlj;
 
@@ -149,9 +149,6 @@ const getAllSpuDetail = async() => {
             // 服务
             const serverInfo = await getServerInfo(item);
             serverInfoList = serverInfoList.concat(serverInfo);
-            if(number === 3){
-                break;
-            }
         }
         return {skuList, serverInfoList, baseInfoList}
     } catch (e) {

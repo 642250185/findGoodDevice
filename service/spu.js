@@ -1,7 +1,7 @@
 const _path = require('path');
 const fs = require('fs-extra');
 const request = require('superagent');
-const config = require('../../config/index');
+const config = require('../config/index');
 
 const {p, v, domain, openRoute, phoneSpuPath, phoneSpuDataPath} = config.zlj;
 

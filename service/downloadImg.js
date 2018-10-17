@@ -2,7 +2,7 @@ const uuid = require('uuid');
 const fs = require('fs-extra');
 const request = require('superagent');
 const sleep = require('js-sleep/js-sleep');
-const config = require('../../config/index');
+const config = require('../config/index');
 
 const {imagesPath, phoneDetailDataPath} = config.zlj;
 

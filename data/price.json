@@ -1,26 +1,26 @@
 [
     {
-        "productId": 307333,
+        "productId": 269664,
         "spuName": "iPhone XS Max",
         "netword": "移动4G,联通4G,电信4G",
         "banben": "国行",
-        "originPrice": 8650,
-        "serverPrice": 8659.9
+        "originPrice": 8999,
+        "serverPrice": 9008.9
     },
     {
-        "productId": 307426,
-        "spuName": "iPhone XS Max",
+        "productId": 289342,
+        "spuName": "iPhone X",
         "netword": "移动4G,联通4G,电信4G",
-        "banben": "国行",
-        "originPrice": 8699,
-        "serverPrice": 8708.9
+        "banben": "其他版本",
+        "originPrice": 6299,
+        "serverPrice": 6308.9
     },
     {
-        "productId": 307431,
-        "spuName": "iPhone XS Max",
+        "productId": 306516,
+        "spuName": "iPhone X",
         "netword": "移动4G,联通4G,电信4G",
         "banben": "国行",
-        "originPrice": 8699,
-        "serverPrice": 8708.9
+        "originPrice": 6499,
+        "serverPrice": 6508.9
     }
 ]

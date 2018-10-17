@@ -3,7 +3,7 @@ const _path = require('path');
 const fs = require('fs-extra');
 const request = require('superagent');
 const xlsx = require('node-xlsx').default;
-const config = require('../../config/index');
+const config = require('../config/index');
 const {p, v, username, password, domain, pricePath, phoneDetailDataPath} = config.zlj;
 
 const login = async() => {

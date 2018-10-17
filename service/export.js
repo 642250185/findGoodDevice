@@ -2,7 +2,7 @@ const _ = require('lodash');
 const _path = require('path');
 const fs = require('fs-extra');
 const xlsx = require('node-xlsx').default;
-const config = require('../../config/index');
+const config = require('../config/index');
 const {phoneSkuDataPath, phoneServerDataPath, phoneDetailDataPath, downloadPath, pricePath} = config.zlj;
 
 
